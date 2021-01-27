@@ -6,6 +6,9 @@ import Add from './components/Add'
 
 function App() {
 
+    //* toggle button app
+    const [showAdd, setShow] = useState(false)
+
     //* nameState,function
     const [tasks, setTask] = useState(
         [
@@ -34,11 +37,11 @@ function App() {
     //*add task
 
     const addTask = (x) => {
-     //* set random number
-     const id = Math.floor(Math.random() * 10000 )  + 1  
-    const baru = { id, ...x}
-    console.log(baru)
-    setTask([...tasks, baru])
+        //* set random number
+        const id = Math.floor(Math.random() * 10000) + 1
+        const baru = { id, ...x }
+        console.log(baru)
+        setTask([...tasks, baru])
     }
 
 
@@ -57,8 +60,15 @@ function App() {
 
     return (
         <div className="container">
-            <Header />
-            <Add tambah={addTask} />
+
+            <Header
+                //* onAdd is prop 
+                onAdd={() => setShow(!showAdd)} lihat={showAdd}
+            />
+            {
+                //* if showAdd true then show
+                showAdd && <Add tambah={addTask} />
+            }
             {/* task and onDelete is a props */}
             { tasks.length > 0 ?
                 (<Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleReminder} />) : (' No Task to show')}
