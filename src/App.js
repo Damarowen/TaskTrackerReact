@@ -68,11 +68,6 @@ function App() {
 
 
 
-        //* set random number
-        // const id = Math.floor(Math.random() * 10000) + 1
-        // const baru = { id, ...x }
-        // console.log(baru)
-        // setTask([...tasks, baru])
     }
 
 
@@ -140,17 +135,6 @@ function App() {
         </Router>
     );
 }
-
-//* if use class
-
-// import React from 'react'
-
-
-// class App extends React.Component {
-//   render(){
-//     return <h1>heelo from a class</h1>
-//   }
-// }
 
 
 
