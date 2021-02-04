@@ -121,7 +121,7 @@ function App() {
                     onAdd={() => setShow(!showAdd)} lihat={showAdd}
                 />
 
-                <Route path='/TaskTrackerReact' exact render={(props) => (
+                <Route path='/' exact render={(props) => (
                     <>
                         {
                             //* if showAdd true then show
