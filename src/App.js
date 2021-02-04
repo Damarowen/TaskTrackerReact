@@ -18,6 +18,7 @@ function App() {
     const [tasks, setTask] = useState([])
 
     //* useEffect hooks 
+    //* Mengambil data dari JSON SERVER
     useEffect(() => {
 
         const getTasks = async () => {
@@ -32,16 +33,19 @@ function App() {
     //* for fecth data
 
     const fetchTasks = async () => {
-        const url = 'http://localhost:5000/tasks'
+        //* URL dari JSON SERVER
+        const url = 'http://localhost:5000/TUGAS'
         const res = await fetch(url)
         const data = await res.json()
+        console.log(data)
 
         return data
     }
 
     //* update reminder
     const fetchTask = async (id) => {
-        const url = `http://localhost:5000/tasks/${id}`
+        //* URL dari JSON SERVER
+        const url = `http://localhost:5000/TUGAS/${id}`
         const res = await fetch(url)
         const data = await res.json()
 
@@ -52,7 +56,9 @@ function App() {
     //*add task
 
     const addTask = async (x) => {
-        const url = `http://localhost:5000/tasks`
+        //* URL dari JSON SERVER
+
+        const url = `http://localhost:5000/TUGAS`
 
         const res = await fetch(url, {
             method: 'POST',
@@ -75,7 +81,7 @@ function App() {
 
     const deleteTask = async (id) => {
 
-        const url = `http://localhost:5000/tasks/${id}`
+        const url = `http://localhost:5000/TUGAS/${id}`
 
         await fetch(url, {
             method: 'DELETE'
@@ -90,7 +96,7 @@ function App() {
 
         const toggle = await fetchTask(id)
         const updated = { ...toggle, reminder: !toggle.reminder }
-        const url = `http://localhost:5000/tasks/${id}`
+        const url = `http://localhost:5000/TUGAS/${id}`
 
         const res = await fetch(url, {
             method: 'PUT',
@@ -115,7 +121,7 @@ function App() {
                     onAdd={() => setShow(!showAdd)} lihat={showAdd}
                 />
 
-                <Route path='/' exact render={(props) => (
+                <Route path='/TaskTrackerReact' exact render={(props) => (
                     <>
                         {
                             //* if showAdd true then show
@@ -124,7 +130,7 @@ function App() {
                         {/* task and onDelete is a props */}
                         {tasks.length > 0 ?
                             (<Tasks tasks={tasks} onDelete={deleteTask}
-                             onToggle={toggleReminder} />) : (' No Task to show')}
+                                onToggle={toggleReminder} />) : (' No Task to show')}
 
                     </>
                 )} />

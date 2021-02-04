@@ -7,7 +7,7 @@ function About() {
         <div>
             <h4> Version 1</h4> 
             {/* <a href="/">Back</a> */}
-          <Link to="/">Back</Link>
+          <Link to="/TaskTrackerReact">Back</Link>
         </div>
     )
 }

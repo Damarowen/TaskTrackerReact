@@ -15,7 +15,7 @@ const Header = ({ title, onAdd, lihat }) => {
     return (
         <header className='header'>
             <h1>{title}</h1>
-            { location.pathname === '/' &&
+            { location.pathname === '/TaskTrackerReact' &&
                 <Button
                     color={lihat ? 'red' : 'green'}
                     text={lihat ? 'Close' : 'Add'}
